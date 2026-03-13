@@ -16,7 +16,6 @@ const App = () => {
               icone='fa-book'
               titulo='Livro'
               descricao='Um livro bom...'
-              {componenteFeedback}
             ></Pedido>
           </Cartao>
         </div>
