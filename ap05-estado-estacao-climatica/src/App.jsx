@@ -6,6 +6,7 @@ const App = () => {
   const [estacao, setEstacao] = useState(null)
   const [data, setData] = useState(null)
   const [icone, setIcone] = useState(null)
+  const [mensagemErro, setMensagemErro] = useState(null)
   const icones = {
     'Primavera': 'cloud-sun',
     'Outono': 'canadian-maple-leaf',
@@ -39,7 +40,7 @@ const App = () => {
         setIcone(icones[estacao])
       },
       (err) => {
-
+        setMensagemErro('Para ver a localizacao deve ser liberada!')
       }
     )
   }
@@ -61,7 +62,9 @@ const App = () => {
                 {
                   latitude ?
                     `Coordenadas: ${latitude},${longitude}. Data: ${data}` :
-                    `Clique no botao para ver sua estacao climatica`
+                    mensagemErro ?
+                      mensagemErro :
+                      `Clique no botao para ver sua estacao climatica`
                 }
               </div>
               <button
